@@ -23,18 +23,18 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="(1)连接校园网 物理机查看校园网分配的ip   首先将虚拟机设置为桥接模式  在连接校园网的情况下，虚拟机桥接模式相当于把虚拟机和物理机都单独成一个机子共同连接校园网，虚拟机不再把我理解当成路由而是直连校园网。  提示:如果在设置桥接模式后查看ip情况后发现还是物理机分配的虚拟机本地ip，这时候可以查看一下虚拟网络编辑器看看是否在桥接模式  若发现不是，改成桥接并重启后就可以正常实验了。 回到正">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/screenshot20231114.png">
+<meta property="og:image" content="http://example.com/img/f.png">
 <meta property="og:image" content="http://example.com/img/a.png">
 <meta property="og:image" content="http://example.com/img/e.png">
-<meta property="og:image" content="http://example.com/img/screenshot20231114%20(1).png">
-<meta property="og:image" content="http://example.com/img/screenshot20231114%20(2).png">
-<meta property="og:image" content="http://example.com/screenshot20231114%20(3).png">
+<meta property="og:image" content="http://example.com/img/b.png">
+<meta property="og:image" content="http://example.com/img/c.png">
+<meta property="og:image" content="http://example.com/img/d.png">
 <meta property="article:published_time" content="2023-11-13T08:08:58.000Z">
-<meta property="article:modified_time" content="2023-11-14T07:00:36.263Z">
+<meta property="article:modified_time" content="2023-11-14T12:06:42.773Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Kali虚拟机采用桥接模式；物理机连接Guet-WiFi，Kali中查看网络配置并截图，能获得IP地址吗？">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/screenshot20231114.png">
+<meta name="twitter:image" content="http://example.com/img/f.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -331,19 +331,19 @@
               <div class="markdown-body">
                 
                 <h4 id="1-连接校园网"><a href="#1-连接校园网" class="headerlink" title="(1)连接校园网"></a>(1)连接校园网</h4><p> 物理机查看校园网分配的ip </p>
-<p><img src="/img/screenshot20231114.png" srcset="/img/loading.gif" lazyload alt="screenshot20231114"></p>
+<p><img src="/img/f.png" srcset="/img/loading.gif" lazyload></p>
 <p>首先将虚拟机设置为桥接模式</p>
 <p><img src="/img/a.png" srcset="/img/loading.gif" lazyload alt="a"></p>
 <p>在连接校园网的情况下，虚拟机桥接模式相当于把虚拟机和物理机都单独成一个机子共同连接校园网，虚拟机不再把我理解当成路由而是直连校园网。</p>
 <p><img src="/img/e.png" srcset="/img/loading.gif" lazyload alt="e"></p>
 <p><strong>提示:如果在设置桥接模式后查看ip情况后发现还是物理机分配的虚拟机本地ip，这时候可以查看一下虚拟网络编辑器看看是否在桥接模式</strong></p>
-<p><img src="/img/screenshot20231114%20(1).png" srcset="/img/loading.gif" lazyload alt="screenshot20231114 (1)"></p>
+<p><img src="/img/b.png" srcset="/img/loading.gif" lazyload></p>
 <p>若发现不是，改成桥接并重启后就可以正常实验了。</p>
 <p>回到正题，<strong>通过物理机连接校园网后虚拟机查看不了ip</strong></p>
 <h4 id="2-连接个人热点"><a href="#2-连接个人热点" class="headerlink" title="(2)连接个人热点"></a><strong>(2)连接个人热点</strong></h4><p> 先用物理机查看连接个人热点后的ip地址</p>
-<p><img src="/img/screenshot20231114%20(2).png" srcset="/img/loading.gif" lazyload alt="screenshot20231114 (2)"></p>
+<p><img src="/img/c.png" srcset="/img/loading.gif" lazyload></p>
 <p>在用虚拟机查看</p>
-<p><img src="/screenshot20231114%20(3).png" srcset="/img/loading.gif" lazyload alt="screenshot20231114 (3)"></p>
+<p><img src="/img/d.png" srcset="/img/loading.gif" lazyload alt="screenshot20231114 (3)"></p>
 <p>发现是可以查看得到ip的</p>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p> 对比校园网和个人热点对ip的处理</p>
 <p>在连接校园的情况下虚拟机获取不了ip是因为<strong>MAC 地址过滤</strong>：校园网可能对连接设备(虚拟机)的 MAC 地址进行了过滤，而 Kali Linux 的 MAC 地址不在被允许列表中，因此无法获得 IP 地址。</p>
