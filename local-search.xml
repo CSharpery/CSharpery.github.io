@@ -23,13 +23,19 @@
   
   
   <entry>
-    <title>Hello World</title>
-    <link href="/2023/11/13/hello-world/"/>
-    <url>/2023/11/13/hello-world/</url>
+    <title>网络渗透作业(3)</title>
+    <link href="/2023/11/14/hello-world/"/>
+    <url>/2023/11/14/hello-world/</url>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h5 id="与Zoomeye相关的搜索引擎还有"><a href="#与Zoomeye相关的搜索引擎还有" class="headerlink" title="与Zoomeye相关的搜索引擎还有"></a>与Zoomeye相关的搜索引擎还有</h5><ol><li><strong>Shodan</strong>:一个知名的搜索引擎，它可以帮助用户查找全球范围内连接到互联网的设备，包括服务器、路由器、摄像头等，并提供有关这些设备的信息。</li><li><strong>Censys</strong>:一个网络安全搜索引擎,帮助用户发现互联网上的设备并获取相关信息。</li><li><strong>BinaryEdge</strong>：帮助用户搜索和分析互联网上的设备和资产信息。</li></ol><p><strong>这些搜索引擎都可以帮助安全研究人员、网络管理员和企业了解其在互联网上的曝露情况，有助于及时发现潜在的安全风险并加强网络安全防护。</strong></p><h5 id="下面是利用fofa来进行一些关于学校的信息搜集"><a href="#下面是利用fofa来进行一些关于学校的信息搜集" class="headerlink" title="下面是利用fofa来进行一些关于学校的信息搜集"></a><strong>下面是利用fofa来进行一些关于学校的信息搜集</strong></h5><p><img src="/../images/image-20231114204456057.png"></p><p>从图可以看出是在搜索url中有关键词’guet’且国家在’CN’的域名.</p><p>通过了解一些简单的搜索语法可以方便我们检索到许多测试目标有用的信息</p><h5 id="子域名收集"><a href="#子域名收集" class="headerlink" title="子域名收集"></a>子域名收集</h5><p>可以使用在线网站</p><p><img src="/../images/image-20231114205050758.png"></p><p>也可以使用工具</p><p><img src="/../images/image-20231114205327016.png"></p><p>可以利用不同的工具可以搜到不同的子域名，搜集的子域名越多对我们后期的测试越有利</p>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>与ZoomEye功能类似的搜索引擎还有哪些?</tag>
+      
+    </tags>
     
   </entry>
   
