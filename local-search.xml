@@ -27,7 +27,7 @@
     <link href="/2023/11/14/%E7%BD%91%E7%BB%9C%E6%B8%97%E9%80%8F(3)/"/>
     <url>/2023/11/14/%E7%BD%91%E7%BB%9C%E6%B8%97%E9%80%8F(3)/</url>
     
-    <content type="html"><![CDATA[<h5 id="与Zoomeye相关的搜索引擎还有"><a href="#与Zoomeye相关的搜索引擎还有" class="headerlink" title="与Zoomeye相关的搜索引擎还有"></a>与Zoomeye相关的搜索引擎还有</h5><ol><li><strong>Shodan</strong>:一个知名的搜索引擎，它可以帮助用户查找全球范围内连接到互联网的设备，包括服务器、路由器、摄像头等，并提供有关这些设备的信息。</li><li><strong>Censys</strong>:一个网络安全搜索引擎,帮助用户发现互联网上的设备并获取相关信息。</li><li><strong>BinaryEdge</strong>：帮助用户搜索和分析互联网上的设备和资产信息。</li></ol><p><strong>这些搜索引擎都可以帮助安全研究人员、网络管理员和企业了解其在互联网上的曝露情况，有助于及时发现潜在的安全风险并加强网络安全防护。</strong></p><h5 id="下面是利用fofa来进行一些关于学校的信息搜集"><a href="#下面是利用fofa来进行一些关于学校的信息搜集" class="headerlink" title="下面是利用fofa来进行一些关于学校的信息搜集"></a><strong>下面是利用fofa来进行一些关于学校的信息搜集</strong></h5><p><img src="/../images/image-20231114204456057.png"></p><p>从图可以看出是在搜索url中有关键词’guet’且国家在’CN’的域名.</p><p>通过了解一些简单的搜索语法可以方便我们检索到许多测试目标有用的信息</p><h5 id="子域名收集"><a href="#子域名收集" class="headerlink" title="子域名收集"></a>子域名收集</h5><p>可以使用在线网站</p><p><img src="/../images/image-20231114205050758.png"></p><p>也可以使用工具</p><p><img src="/../images/image-20231114205327016.png"></p><p>可以利用不同的工具可以搜到不同的子域名，搜集的子域名越多对我们后期的测试越有利s</p>]]></content>
+    <content type="html"><![CDATA[<h5 id="与Zoomeye相关的搜索引擎还有"><a href="#与Zoomeye相关的搜索引擎还有" class="headerlink" title="与Zoomeye相关的搜索引擎还有"></a>与Zoomeye相关的搜索引擎还有</h5><ol><li><strong>Shodan</strong>:一个知名的搜索引擎，它可以帮助用户查找全球范围内连接到互联网的设备，包括服务器、路由器、摄像头等，并提供有关这些设备的信息。</li><li><strong>Censys</strong>:一个网络安全搜索引擎,帮助用户发现互联网上的设备并获取相关信息。</li><li><strong>BinaryEdge</strong>：帮助用户搜索和分析互联网上的设备和资产信息。</li></ol><p><strong>这些搜索引擎都可以帮助安全研究人员、网络管理员和企业了解其在互联网上的曝露情况，有助于及时发现潜在的安全风险并加强网络安全防护。</strong></p><h5 id="下面是利用fofa来进行一些关于学校的信息搜集"><a href="#下面是利用fofa来进行一些关于学校的信息搜集" class="headerlink" title="下面是利用fofa来进行一些关于学校的信息搜集"></a><strong>下面是利用fofa来进行一些关于学校的信息搜集</strong></h5><p><img src="/../images/image-20231114204456057.png"></p><p>从图可以看出是在搜索url中有关键词’guet’且国家在’CN’的域名.</p><p>通过了解一些简单的搜索语法可以方便我们检索到许多测试目标有用的信息</p><h5 id="子域名收集"><a href="#子域名收集" class="headerlink" title="子域名收集"></a>子域名收集</h5><p>可以使用在线网站</p><p><img src="/../images/image-20231114205050758.png"></p><p>也可以使用工具</p><p><img src="/../images/image-20231114205327016.png"></p><p>可以利用不同的工具可以搜到不同的子域名，搜集的子域名越多对我们后期的测试越有利</p>]]></content>
     
     
     
@@ -36,6 +36,19 @@
       <tag>与ZoomEye功能类似的搜索引擎还有哪些?</tag>
       
     </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>QQ流量抓取</title>
+    <link href="/2023/11/14/QQ%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/"/>
+    <url>/2023/11/14/QQ%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/</url>
+    
+    <content type="html"><![CDATA[<h4 id="流量抓取"><a href="#流量抓取" class="headerlink" title="流量抓取"></a>流量抓取</h4><p>准备好一张jpg图片</p><p><img src="/../Nodejs/node_global/node_modules/hexo-blog/source/images/send.jpg" alt="send"></p><p>打开wireshark找到wifi下的WLAN</p><p><img src="/../Nodejs/node_global/node_modules/hexo-blog/source/images/image-20231120161648168.png" alt="image-20231120161648168"></p><p>打开WLAN后，使用筛选器筛选TCP协议的流量</p><p><img src="/../Nodejs/node_global/node_modules/hexo-blog/source/images/image-20231120161849652.png" alt="image-20231120161849652"></p><p>然后向QQ好友发送上述图片后筛选出发送图片的流量包</p><p>ctrl+f勾选16进制查找，这里是通过文件头标识来找到目标流量包(jpg的文件头为<strong>ffd8ffe0</strong>)</p><p><img src="/../Nodejs/node_global/node_modules/hexo-blog/source/images/image-20231120162504687.png" alt="image-20231120162504687"></p><p>找到后对该包右键——&gt;跟踪流——&gt;TCP</p><p><img src="/../Nodejs/node_global/node_modules/hexo-blog/source/images/image-20231120162631862.png" alt="image-20231120162631862"></p><p>然后勾选本地ip为源ip发送给目的ip的数据，将数据显示为<strong>原始数据</strong></p><p><img src="/../Nodejs/node_global/node_modules/hexo-blog/source/images/image-20231120162834684.png" alt="image-20231120162834684"></p><p>另存为一张jpg图片后发现是打不开的，这是因为数据中还参杂着一些别的数据</p><p>通过010Editor对该图片进行修改</p><p><img src="/../Nodejs/node_global/node_modules/hexo-blog/source/images/image-20231120163134483.png" alt="image-20231120163134483"></p><p>删除文件头前面的数据保存即可打开该图片</p><p><img src="/../Nodejs/node_global/node_modules/hexo-blog/source/images/image-20231120163237804.png" alt="image-20231120163237804"></p><h4 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h4><h5 id="QQ好友将图片发到PC端"><a href="#QQ好友将图片发到PC端" class="headerlink" title="QQ好友将图片发到PC端"></a><strong>QQ好友将图片发到PC端</strong></h5><p>尝试抓取流量</p><p><img src="/../Nodejs/node_global/node_modules/hexo-blog/source/images/image-20231120163850365.png" alt="image-20231120163850365"></p><p>发现是抓取不到的</p><h5 id="使用手机端QQ向PC端QQ（同属一个QQ）中"><a href="#使用手机端QQ向PC端QQ（同属一个QQ）中" class="headerlink" title="使用手机端QQ向PC端QQ（同属一个QQ）中"></a><strong>使用手机端QQ向PC端QQ（同属一个QQ）中</strong></h5><p>发送后查看TCP协议的流量</p><p><img src="/../Nodejs/node_global/node_modules/hexo-blog/source/images/image-20231120164117741.png" alt="image-20231120164117741"></p><p>发现抓取到了</p><h5 id="将图片发到群聊中"><a href="#将图片发到群聊中" class="headerlink" title="将图片发到群聊中"></a><strong>将图片发到群聊中</strong></h5><p>尝试抓取流量包</p><p><img src="/../Nodejs/node_global/node_modules/hexo-blog/source/images/image-20231120163522022.png" alt="image-20231120163522022"></p><p>发现是抓取不到的</p><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>由此可见QQ对图片的传输在设备向外传输和手机端向PC端传输时的tcp是不对图片进行加密的，但在向群中发送图片时对图片进行了加密处理，QQ对图片传输是有一定的保护性的</p>]]></content>
+    
+    
     
   </entry>
   
