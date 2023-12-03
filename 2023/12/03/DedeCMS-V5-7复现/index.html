@@ -16,13 +16,14 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content=".漏洞分析该漏洞产生于**&#x2F;uploads&#x2F;member&#x2F;resetpassword.php**中 123456789101112131415161718192021else if($dopost &#x3D;&#x3D; &quot;safequestion&quot;)&amp;#123;    $mid &#x3D; preg_replace(&quot;#[^0-9]#&quot;, &quot;">
+    <meta name="description" content=".测试环境:本地phpstudy2018搭建 下载DedeCMS-V5.7源码将文件访问根目录中访问搭建 搭建后访问127.0.0.1&#x2F;DedeCMS-V5.7-GBK-SP2-Full&#x2F;uploads&#x2F;member&#x2F;login.php  .漏洞分析该漏洞产生于**&#x2F;uploads&#x2F;member&#x2F;resetpassword.ph">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DedeCMS-V5.7复现">
 <meta property="og:url" content="http://example.com/2023/12/03/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content=".漏洞分析该漏洞产生于**&#x2F;uploads&#x2F;member&#x2F;resetpassword.php**中 123456789101112131415161718192021else if($dopost &#x3D;&#x3D; &quot;safequestion&quot;)&amp;#123;    $mid &#x3D; preg_replace(&quot;#[^0-9]#&quot;, &quot;">
+<meta property="og:description" content=".测试环境:本地phpstudy2018搭建 下载DedeCMS-V5.7源码将文件访问根目录中访问搭建 搭建后访问127.0.0.1&#x2F;DedeCMS-V5.7-GBK-SP2-Full&#x2F;uploads&#x2F;member&#x2F;login.php  .漏洞分析该漏洞产生于**&#x2F;uploads&#x2F;member&#x2F;resetpassword.ph">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203185737331.png">
 <meta property="og:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203154456370.png">
 <meta property="og:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203182212611.png">
 <meta property="og:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203181338427.png">
@@ -31,11 +32,11 @@
 <meta property="og:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203184110318.png">
 <meta property="og:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203184356949.png">
 <meta property="article:published_time" content="2023-12-03T07:27:42.000Z">
-<meta property="article:modified_time" content="2023-12-03T10:52:07.224Z">
+<meta property="article:modified_time" content="2023-12-03T10:59:06.852Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="DedeCMS-V5.7复现">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203154456370.png">
+<meta name="twitter:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203185737331.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -270,7 +271,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.3k 字
+          6.4k 字
         
       </span>
     
@@ -281,7 +282,7 @@
         
         
         
-          53 分钟
+          54 分钟
         
       </span>
     
@@ -331,7 +332,11 @@
             
               <div class="markdown-body">
                 
-                <h4 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title=".漏洞分析"></a>.漏洞分析</h4><p>该漏洞产生于**&#x2F;uploads&#x2F;member&#x2F;resetpassword.php**中</p>
+                <p>.测试环境:本地phpstudy2018搭建</p>
+<p>下载DedeCMS-V5.7源码将文件访问根目录中访问搭建</p>
+<p>搭建后访问<strong>127.0.0.1&#x2F;DedeCMS-V5.7-GBK-SP2-Full&#x2F;uploads&#x2F;member&#x2F;login.php</strong></p>
+<p><img src="D:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203185737331.png" srcset="/img/loading.gif" lazyload alt="image-20231203185737331"></p>
+<h4 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title=".漏洞分析"></a>.漏洞分析</h4><p>该漏洞产生于**&#x2F;uploads&#x2F;member&#x2F;resetpassword.php**中</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-variable">$dopost</span> == <span class="hljs-string">&quot;safequestion&quot;</span>)<br>&#123;<br>    <span class="hljs-variable">$mid</span> = <span class="hljs-title function_ invoke__">preg_replace</span>(<span class="hljs-string">&quot;#[^0-9]#&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-variable">$id</span>);<br>    <span class="hljs-variable">$sql</span> = <span class="hljs-string">&quot;SELECT safequestion,safeanswer,userid,email FROM #@__member WHERE mid = &#x27;<span class="hljs-subst">$mid</span>&#x27;&quot;</span>;<br>    <span class="hljs-variable">$row</span> = <span class="hljs-variable">$db</span>-&gt;<span class="hljs-title function_ invoke__">GetOne</span>(<span class="hljs-variable">$sql</span>);<br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$safequestion</span>)) <span class="hljs-variable">$safequestion</span> = <span class="hljs-string">&#x27;&#x27;</span>;<br><br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$safeanswer</span>)) <span class="hljs-variable">$safeanswer</span> = <span class="hljs-string">&#x27;&#x27;</span>;<br><br>    <span class="hljs-keyword">if</span>(<span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;safequestion&#x27;</span>] == <span class="hljs-variable">$safequestion</span> &amp;&amp; <span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;safeanswer&#x27;</span>] == <span class="hljs-variable">$safeanswer</span>)<br>    &#123;<br>        <span class="hljs-title function_ invoke__">sn</span>(<span class="hljs-variable">$mid</span>, <span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;userid&#x27;</span>], <span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;email&#x27;</span>], <span class="hljs-string">&#x27;N&#x27;</span>);<br>        <span class="hljs-keyword">exit</span>();<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        <span class="hljs-title function_ invoke__">ShowMsg</span>(<span class="hljs-string">&quot;对不起，您的安全问题或答案回答错误&quot;</span>,<span class="hljs-string">&quot;-1&quot;</span>);<br>        <span class="hljs-keyword">exit</span>();<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>该.php是一个实现密码找回的功能，从界面中可以看出密码找回是可以通过两个方式找回密码的，一个是邮件找回另一个是通过回答安全问题找回</p>
