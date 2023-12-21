@@ -95,8 +95,16 @@
 <meta property="og:image" content="http://example.com/images/image-20231221155427857.png">
 <meta property="og:image" content="http://example.com/images/image-20231221155910766.png">
 <meta property="og:image" content="http://example.com/images/image-20231221160005547.png">
+<meta property="og:image" content="http://example.com/images/image-20231221194458137.png">
+<meta property="og:image" content="http://example.com/images/image-20231221200105698.png">
+<meta property="og:image" content="http://example.com/images/image-20231221200344859.png">
+<meta property="og:image" content="http://example.com/images/image-20231221205135240.png">
+<meta property="og:image" content="http://example.com/images/image-20231221205339285.png">
+<meta property="og:image" content="http://example.com/images/image-20231221205516529.png">
+<meta property="og:image" content="http://example.com/images/image-20231221212537730.png">
+<meta property="og:image" content="http://example.com/images/image-20231221212613993.png">
 <meta property="article:published_time" content="2023-12-04T10:16:11.000Z">
-<meta property="article:modified_time" content="2023-12-21T08:06:28.975Z">
+<meta property="article:modified_time" content="2023-12-21T13:32:33.918Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content=".">
 <meta name="twitter:card" content="summary_large_image">
@@ -335,7 +343,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.3k 字
+          11k 字
         
       </span>
     
@@ -346,7 +354,7 @@
         
         
         
-          78 分钟
+          89 分钟
         
       </span>
     
@@ -653,6 +661,53 @@
 <p><img src="/../images/image-20231221160005547.png" srcset="/img/loading.gif" lazyload alt="image-20231221160005547"></p>
 <p>可以看到扫出有abc文件。</p>
 <p>文件扫描是主动扫描，在实战中，如果使用批量的扫描容易被发现，了解一些关于框架的一些配置文件可以通过尝试访问看看是否存在敏感信息.如phpinfo.php为php环境的配置信息或者phpMyAdmin 后台</p>
+<h3 id="PHP反序列化"><a href="#PHP反序列化" class="headerlink" title="PHP反序列化"></a>PHP反序列化</h3><p>序列化是php将字符转化为一种字节流的过程,反序列化就是反过来，在序列化或者反序列化过程当中的php语句会被解析，如果被攻击者利用就造成别的操作。</p>
+<p><img src="/../images/image-20231221194458137.png" srcset="/img/loading.gif" lazyload alt="image-20231221194458137"></p>
+<p>本关直接给一个可以序列化的接口，如果往里面写入带有恶意代码的序列化后的语句可以会被执行</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">O</span>:<span class="hljs-number">1</span>:<span class="hljs-string">&quot;a&quot;</span>:<span class="hljs-number">1</span>:&#123;s:<span class="hljs-number">2</span>:<span class="hljs-string">&quot;as&quot;</span>;s:<span class="hljs-number">13</span>:<span class="hljs-string">&quot;system(&#x27;dir&#x27;)&quot;</span>;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>无果</p>
+<p>查看源代码</p>
+<p><img src="/../images/image-20231221200105698.png" srcset="/img/loading.gif" lazyload alt="image-20231221200105698"></p>
+<p>可以看到是直接反序列化还把结果通过html展示出来，这就存在xss但是这好像是要知道属性名为test才行(有点..)</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">O</span>:<span class="hljs-number">1</span>:<span class="hljs-string">&quot;S&quot;</span>:<span class="hljs-number">1</span>:&#123;s:<span class="hljs-number">4</span>:<span class="hljs-string">&quot;test&quot;</span>;s:<span class="hljs-number">29</span>:<span class="hljs-string">&quot;&lt;script&gt;alert(&#x27;xss&#x27;)&lt;/script&gt;&quot;</span>;&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/../images/image-20231221200344859.png" srcset="/img/loading.gif" lazyload alt="image-20231221200344859"></p>
+<h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><p><img src="/../images/image-20231221205135240.png" srcset="/img/loading.gif" lazyload alt="image-20231221205135240"></p>
+<p>查看按钮执行的语句，发现传入一个url参数，参数值为一个文件，而且点击后是直接跳转到指定的文件出。猜测是否存在跟目录遍历类似的漏洞’</p>
+<p>尝试访问上一个目录提前创好的a.txt文件</p>
+<p><img src="/../images/image-20231221205339285.png" srcset="/img/loading.gif" lazyload alt="image-20231221205339285"></p>
+<p>发现访问成功</p>
+<p>查看一下源码</p>
+<p><img src="/../images/image-20231221205516529.png" srcset="/img/loading.gif" lazyload alt="image-20231221205516529"></p>
+<p>可以看到直接将传入的url放入到header重定向函数中，造成任意文件读取</p>
+<h3 id="SSRF"><a href="#SSRF" class="headerlink" title="SSRF"></a>SSRF</h3><p>SSRF的形成大多是由于服务端提供了从其他服务器应用获取数据的功能且没有对目标地址做过滤与限制</p>
+<p>导致攻击者去伪造请求让服务器去发起请求，通过目标服务器去访问别的服务器或者是自身的内容</p>
+<p>有点类似于CSRF但是这是服务器去请求。如果没有进行严格的过滤就有可能造成:</p>
+<ul>
+<li>对外网、服务器所在内网、本地进行端口扫描，获取一些服务的banner信息。</li>
+<li>攻击运行在内网或本地的应用程序。</li>
+<li>对内网Web应用进行指纹识别，识别企业内部的资产信息。</li>
+<li>攻击内外网的Web应用，主要是使用HTTP GET请求就可以实现的攻击(比如struts2、SQli等)。</li>
+<li>利用file协议读取本地文件等。</li>
+</ul>
+<p><img src="/../images/image-20231221212537730.png" srcset="/img/loading.gif" lazyload alt="image-20231221212537730"></p>
+<p>尝试更换访问的URL</p>
+<p><img src="/../images/image-20231221212613993.png" srcset="/img/loading.gif" lazyload alt="image-20231221212613993"></p>
+<p>可以发现服务器任意发送请求</p>
+<p>这三个函数在PHP中用于从远程服务器获取数据或与远程服务器通信。</p>
+<ol>
+<li><p><code>file_get_contents()</code>: 这个函数用于将整个文件读入一个字符串中。它可以用来获取远程服务器上的文件内容，例如网页内容或 API 响应。使用该函数时需要确保 PHP 配置中允许打开远程文件。</p>
+</li>
+<li><p><code>fsockopen()</code>: 这个函数用于在网络上打开一个 socket 连接。它可以用于通过 TCP 或 UDP 与远程服务器进行通信。通过这个函数，你可以手动构建和发送 HTTP 请求，以及处理服务器响应。</p>
+</li>
+<li><p><code>curl_exec()</code>: 这个函数是通过 cURL 库执行一个请求，并返回结果。cURL 是一个功能强大的工具，用于在不同协议下传输数据。<code>curl_exec()</code> 可以用来向服务器发送请求并获取响应，支持的协议包括 HTTP、HTTPS、FTP 等。</p>
+</li>
+</ol>
+<p>这些函数都可以用于从远程服务器获取数据或与远程服务器进行通信，但各自的使用场景和功能略有不同。</p>
+<p>1.验证是否存在可以通过跳转链接处的源码或者是否存在参数，如果有就可以存在SSRF</p>
+<p>2.抓包看参数是否包含有别的服务器url</p>
+<p>3.尝试让服务器访问dnslog，如有数据就存在SSRF</p>
 
                 
               </div>
@@ -1041,4 +1096,5 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+</body>
+</html>
